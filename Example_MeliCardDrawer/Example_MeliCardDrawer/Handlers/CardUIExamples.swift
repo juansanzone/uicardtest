@@ -53,7 +53,7 @@ struct CardUIExamples {
         var bankImage: UIImage?
         var cardPattern = [10, 5, 3]
         var cardFontColor: UIColor = .white
-        var cardLogoImage: UIImage? = UIImage(named: "maestro")
+        var cardLogoImage: UIImage? = UIImage(named: "debmaestro")
         var cardBackgroundColor: UIColor = UIColor(red: 90/255, green: 117/255, blue: 137/255, alpha: 1)
         var securityCodeLocation: Location = .back
         var defaultUI = false
@@ -68,7 +68,7 @@ struct CardUIExamples {
         var bankImage: UIImage?
         var cardPattern = [9, 10]
         var cardFontColor: UIColor = .white
-        var cardLogoImage: UIImage? = UIImage(named: "maestro")
+        var cardLogoImage: UIImage? = UIImage(named: "debmaestro")
         var cardBackgroundColor: UIColor = UIColor(red: 90/255, green: 117/255, blue: 137/255, alpha: 1)
         var securityCodeLocation: Location = .back
         var defaultUI = false
