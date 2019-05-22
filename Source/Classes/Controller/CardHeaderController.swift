@@ -1,7 +1,6 @@
 import UIKit
 
 @objcMembers public class CardHeaderController: UIViewController {
-
     let cardFont = "RobotoMono-Regular"
     var frontView = FrontView()
     var backView = BackView()
@@ -32,6 +31,14 @@ import UIKit
             return
         }
         transition(from: frontView, to: backView, .transitionFlipFromLeft)
+    }
+
+    @discardableResult
+    public func setup(inView: UIView) -> CardHeaderController {
+        inView.layoutIfNeeded()
+        view.frame = CGRect(origin: .zero, size: inView.frame.size)
+        inView.addSubview(view)
+        return self
     }
 
     func transition(from origin: UIView, to destination: UIView, _ options: UIView.AnimationOptions) {

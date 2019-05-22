@@ -31,7 +31,7 @@ final class ViewController: UIViewController {
 // MARK: UI Setup.
 extension ViewController {
     private func setupUI() {
-        setupCardExample(containerView)
+        setupCardExample()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
@@ -40,15 +40,9 @@ extension ViewController {
     }
 
     // Example implementation MeliCardDrawer - CardHeaderController.
-    private func setupCardExample(_ inContainer: UIView) {
+    private func setupCardExample() {
         cardDrawer = CardHeaderController(cardUIHandler, cardDataHandler)
-        guard let cardDrawerView = cardDrawer?.view else {
-            print("Cannot access to CardHeaderController view")
-            return
-        }
-        cardDrawerView.frame = CGRect(origin: .zero, size: inContainer.frame.size)
-        inContainer.addSubview(cardDrawerView)
-        cardDrawer?.show()
+        cardDrawer?.setup(inView: containerView).show()
     }
 }
 
