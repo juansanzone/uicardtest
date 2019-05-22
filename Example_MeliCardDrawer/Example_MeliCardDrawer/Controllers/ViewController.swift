@@ -17,7 +17,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
 
     // MARK: Private Vars
-    // Example implementation CardHeaderController - MeliCardDrawer
+    // Example implementation CardHeaderController - MeliCardDrawer.
     private var cardDrawer: CardHeaderController?
     private var cardUIHandler: CardUI = CardUIExamples.VisaSantander()
     private var cardDataHandler: CardData = CardDataHandler()
@@ -28,7 +28,7 @@ final class ViewController: UIViewController {
     }
 }
 
-// MARK: UI Setup
+// MARK: UI Setup.
 extension ViewController {
     private func setupUI() {
         setupCardExample(containerView)
@@ -39,7 +39,7 @@ extension ViewController {
         cardTypesCollectionView.delegate = self
     }
 
-    // Example implementation MeliCardDrawer - CardHeaderController
+    // Example implementation MeliCardDrawer - CardHeaderController.
     private func setupCardExample(_ inContainer: UIView) {
         cardDrawer = CardHeaderController(cardUIHandler, cardDataHandler)
         guard let cardDrawerView = cardDrawer?.view else {
