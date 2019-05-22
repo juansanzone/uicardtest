@@ -5,7 +5,7 @@ use_frameworks!
 
 target 'Example_MeliCardDrawer' do
     pod 'uicardtest', :path => '../'
-    #target 'MLCard_Tests' do
-        #inherit! :search_paths
-    #end
+    target 'Example_MeliCardDrawerTests' do
+    	inherit! :search_paths
+    end
 end

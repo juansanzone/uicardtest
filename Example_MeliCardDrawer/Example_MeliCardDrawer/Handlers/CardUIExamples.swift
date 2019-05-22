@@ -1,9 +1,7 @@
-import Foundation
 import UIKit
 import uicardtest
 
 struct CardUIExamples {
-
     // Example - Default CardUI
     class CardDefaultUI: NSObject, CardUI {
         var placeholderName = "NOMBRE Y APELLIDO"

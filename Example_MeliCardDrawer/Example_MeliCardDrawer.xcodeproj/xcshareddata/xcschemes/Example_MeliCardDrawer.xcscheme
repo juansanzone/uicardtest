@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Example_MeliCardDrawer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2365221E2294A88200FA6F2D"
+               BuildableName = "Example_MeliCardDrawerTests.xctest"
+               BlueprintName = "Example_MeliCardDrawerTests"
+               ReferencedContainer = "container:Example_MeliCardDrawer.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

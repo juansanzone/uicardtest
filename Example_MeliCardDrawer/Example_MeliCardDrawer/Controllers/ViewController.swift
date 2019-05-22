@@ -12,7 +12,7 @@ import uicardtest
 class ViewController: UIViewController {
     // MARK: - Constants
     private let margin: CGFloat = 16
-    private let containerViewHeight: CGFloat = 190
+    private let containerViewHeight: CGFloat = 185
 
     // MARK: - Private Vars
     // Example implementation MeliCardDrawer
