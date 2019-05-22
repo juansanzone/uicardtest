@@ -12,7 +12,7 @@ import uicardtest
 final class ViewController: UIViewController {
     private var cardUILists: [CardUI] = [CardUIExamples.AmericanExpress(), CardUIExamples.Visa(), CardUIExamples.Maestro19(), CardUIExamples.GaliciaAmex(), CardUIExamples.VisaSantander(), CardUIExamples.Maestro18(),  CardUIExamples.Visa(), CardUIExamples.Visa1(), CardUIExamples.Visa2(), CardUIExamples.Visa3(), CardUIExamples.Visa4(), CardUIExamples.Visa5()]
 
-    // MARK: Outlets
+    // MARK: Outlets.
     @IBOutlet weak var cardTypesCollectionView: UICollectionView!
     @IBOutlet weak var containerView: UIView!
 
