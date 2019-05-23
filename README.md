@@ -116,9 +116,6 @@ Using CardUI protocol to customize: position of security code, card background, 
 ### 🔮 Project Example
 This project include an example project using MeliCardDrawer and another target with xCTests test cases.
 
-### 📚 Documentation
-:TODO:
-
 ## ❤️ Feedback
 This is an open source project, so feel free to contribute. How? -> Fork this project and propose your own fixes, suggestions and open a pull request with the changes.
 
