@@ -32,9 +32,7 @@ final class ViewController: UIViewController {
 extension ViewController {
     private func setupUI() {
         setupCardExample()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
+        setupDismissGesture()
         cardTypesCollectionView.dataSource = self
         cardTypesCollectionView.delegate = self
     }
@@ -43,6 +41,12 @@ extension ViewController {
     private func setupCardExample() {
         cardDrawer = CardHeaderController(cardUIHandler, cardDataHandler)
         cardDrawer?.setup(inView: containerView).show()
+    }
+
+    private func setupDismissGesture() {
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
     }
 }
 
