@@ -45,7 +45,6 @@ private var containerView: UIView = UIView()
 private var cardDrawer: CardHeaderController?
 ```
 
-
 ### 3 - Init cardDrawer sending CardUI and CardData protocol as parameters.
 ```swift
 cardDrawer = CardHeaderController(cardUIHandler, cardDataHandler)
@@ -56,65 +55,53 @@ cardDrawer = CardHeaderController(cardUIHandler, cardDataHandler)
 cardDrawer?.setup(inView: containerView).show()
 ```
 
-## 🎨 UI Custom Colors
-### Basic color customization
-You can define one color (your main color) and we will take care of the rest. Delivering the best Checkout experience based on your color.
+## 💡 Advanced features
+### Show security code
+You can highlight the security code location. If the security code is behind, the card will transition with flip animation.
 ```swift
-checkoutBuilder.setColor(checkoutColor: UIColor.purple)
+cardDrawer?.showSecurityCode()
 ```
 
-### Advanced color customization
-If you need an advanced color customization, you can customize your colors through our `PXTheme` interface/protocol. Check the  <a href="http://mercadopago.github.io/px-ios/v4/Protocols/PXTheme.html" target="_blank"> `PXTheme` methods in our reference guide. </a>
-
-The following example implements the protocol `PXTheme` to customize the UI with Mercadolibre style:
+### Show front card view
 ```swift
-final class ExampleTheme: PXTheme {
-    let primaryColor: UIColor = #colorLiteral(red: 1, green: 0.9176470588, blue: 0.4705882353, alpha: 1)
+cardDrawer?.show()
+```
 
-    public func navigationBar() -> PXThemeProperty {
-        return PXThemeProperty(backgroundColor: primaryColor, tintColor: #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1))
-    }
+## 💳 Card data structure and style customization
+You can customize the data structure and style of your card.
 
-    public func loadingComponent() -> PXThemeProperty {
-        return PXThemeProperty(backgroundColor: primaryColor, tintColor: #colorLiteral(red: 0.2039215686, green: 0.5137254902, blue: 0.9803921569, alpha: 1))
-    }
-
-    public func highlightBackgroundColor() -> UIColor {
-        return primaryColor
-    }
-
-    public func detailedBackgroundColor() -> UIColor {
-        return #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-    }
-
-    public func statusBarStyle() -> UIStatusBarStyle {
-        return .default
-    }
+### 🔠 CardData protocol
+Using CardData protocol to update the card display values.
+```swift
+@objc public protocol CardData {
+    var name: String { get set }
+    var number: String { get set }
+    var expiration: String { get set }
+    var securityCode: String { get set }
+    @objc optional var lastDigits: String { get set}
 }
 ```
 
-## 🔠 Custom Fonts
-You can set your custom Font by `PXTheme` protocol. Implement the following 3 optional methods:
-```swift
-@objc optional func fontName() -> String?
-@objc optional func lightFontName() -> String?
-@objc optional func semiBoldFontName() -> String?
-```
+### 🎨 CardUI protocol
+Using CardUI protocol to customize: position of security code, card background, font color, place holders, etc.
 
-## 📈 Tracking
-We provide `PXTrackerListener` protocol to notify each tracking event. You can subscribe to this protocol using `PXTracker`.
-
-### Implement PXTrackerListener protocol.
 ```swift
-@objc public protocol PXTrackerListener: NSObjectProtocol {
-    func trackScreen(screenName: String, extraParams: [String: Any]?)
-    func trackEvent(screenName: String?, action: String!, result: String?, extraParams: [String: Any]?)
+@objc public protocol CardUI {
+    var cardPattern: [Int] { get }
+    var placeholderName: String { get }
+    var placeholderExpiration: String { get }
+    var cardFontColor: UIColor { get }
+    var cardBackgroundColor: UIColor { get }
+    var securityCodeLocation: Location { get }
+    var defaultUI: Bool { get }
+    var securityCodePattern: Int { get }
+
+    @objc optional func set(bank: UIImageView)
+    @objc optional func set(logo: UIImageView)
+    @objc optional var fontType: String { get }
+    @objc optional var bankImage: UIImage? { get }
+    @objc optional var cardLogoImage: UIImage? { get }
 }
-```
-
-### Set listener
-```swift
-PXTracker.setListener(self)
 ```
 
 ### 🕵️‍♂️ Test cases
