@@ -115,6 +115,9 @@ We provide `PXTrackerListener` protocol to notify each tracking event. You can s
 PXTracker.setListener(self)
 ```
 
+### 🕵️‍♂️ Test cases
+![TestCases](https://raw.githubusercontent.com/juansanzone/uicardtest/master/Static/Tests.png)
+
 ### 📋 Supported OS & SDK Versions
 * iOS 9.0+
 * Swift 4.2
@@ -122,7 +125,7 @@ PXTracker.setListener(self)
 * @Objc full compatibility
 
 ### 🔮 Project Example
-This project include an example project using MeliCardDrawer and other target with xCTests test cases.
+This project include an example project using MeliCardDrawer and another target with xCTests test cases.
 
 ### 📚 Documentation
 :TODO:
