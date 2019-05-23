@@ -23,10 +23,13 @@ pod 'MeliCardDrawer'
 ```
 
 ## 🌟 Features
-- [x] Easy to install
 - [x] Easy to integrate
-- [x] PCI compliance
-- [x] Font customization
+- [x] Card number, name, expiration date and CVV support (CardData protocol)
+- [x] Card left and right image customization (CardUI protocol)
+- [x] CVV support at front & back view
+- [x] Card flip animation integrated
+- [x] Live card view updated while CardData protocol is edited
+- [x] PCI compliance (We do not save anything)
 
 ## 🐒 How to use
 
@@ -35,24 +38,23 @@ pod 'MeliCardDrawer'
 import MeliCardDrawer
 ```
 
-### 2 - Set your  `PublicKey`  and  `PreferenceId` 
+### 2 - Define CardHeaderController reference & your own container view.
 ```swift
-let checkout = MercadoPagoCheckout.init(builder: MercadoPagoCheckoutBuilder.init(publicKey: "your_public_key", preferenceId: "your_checkout_preference_id"))
+// You can create your containerView by code or by storyboard/xib (as you like)
+private var containerView: UIView = UIView()
+private var cardDrawer: CardHeaderController?
 ```
 
-### 3 - Start
+
+### 3 - Init cardDrawer sending CardUI and CardData protocol as parameters.
 ```swift
-checkout.start(navigationController: self.navigationController)
+cardDrawer = CardHeaderController(cardUIHandler, cardDataHandler)
 ```
 
-## 💪 One line integration
+### 4 - Call to setup and show method.
 ```swift
-MercadoPagoCheckout.init(builder: MercadoPagoCheckoutBuilder.init(publicKey: "your_public_key", preferenceId: "your_checkout_preference_id")).start(navigationController: self.navigationController)
+cardDrawer?.setup(inView: containerView).show()
 ```
-
-## 💡Advanced integration
-Check our official code <a href="http://mercadopago.github.io/px-ios/v4/" target="_blank"> reference </a>, especially <a href="http://mercadopago.github.io/px-ios/v4/Classes/MercadoPagoCheckoutBuilder.html" target="_blank"> MercadoPagoCheckoutBuilder </a> object to explore all available functionalities.
-
 
 ## 🎨 UI Custom Colors
 ### Basic color customization
