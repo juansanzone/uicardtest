@@ -4,6 +4,7 @@ import UIKit
 @objc public enum Location: Int {
     case front, back, none
 }
+
 @objc public protocol CardUI {
     var cardPattern: [Int] { get }
     var placeholderName: String { get }
@@ -19,4 +20,8 @@ import UIKit
     @objc optional var fontType: String { get }
     @objc optional var bankImage: UIImage? { get }
     @objc optional var cardLogoImage: UIImage? { get }
+}
+
+@objc public protocol CustomCardDrawerUI: CardUI {
+    @objc optional var ownGradient: CAGradientLayer { get }
 }
