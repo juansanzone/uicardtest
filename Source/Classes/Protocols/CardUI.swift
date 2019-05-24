@@ -4,6 +4,7 @@ import UIKit
 @objc public enum Location: Int {
     case front, back, none
 }
+
 @objc public protocol CardUI {
     var cardPattern: [Int] { get }
     var placeholderName: String { get }

@@ -12,7 +12,6 @@ class CardLabel: UILabel {
     }
 
     func setup(_ text: String?, _ textType: Font? = nil) {
-
         typeFont = textType ?? typeFont
         textColor = typeFont.color
         let color = typeFont.gradient.getGradient(frame)
@@ -20,12 +19,12 @@ class CardLabel: UILabel {
     }
 
     func totalPad() -> Int {
-        return Int(frame.width / font.size(" ").width)        
+        return Int(frame.width / font.size(" ").width)
     }
 
     override func observeValue(forKeyPath keyPath: String?,
                                of object: Any?,
-                               change: [NSKeyValueChangeKey : Any]?,
+                               change: [NSKeyValueChangeKey: Any]?,
                                context: UnsafeMutableRawPointer?) {
 
         guard let change = change, let new = change[.newKey] else { return }
