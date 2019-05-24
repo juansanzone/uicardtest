@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "uicardtest"
-  s.version          = "1.0.1"
+  s.version          = "1.0.2"
   s.summary          = "uicardtest for iOS"
   s.homepage         = "https://www.mercadolibre.com"
   s.license          = { :type => "MIT", :file => "LICENSE" }
