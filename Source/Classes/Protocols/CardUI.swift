@@ -21,3 +21,7 @@ import UIKit
     @objc optional var bankImage: UIImage? { get }
     @objc optional var cardLogoImage: UIImage? { get }
 }
+
+@objc public protocol CustomCardDrawerUI: CardUI {
+    @objc optional var ownGradient: CAGradientLayer { get }
+}

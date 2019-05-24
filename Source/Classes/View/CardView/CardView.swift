@@ -34,7 +34,7 @@ class CardView: UIView {
     func setupUI(_ cardUI: CardUI) {
         self.cardUI = cardUI
         securityCode.formatter = Mask(pattern: [cardUI.securityCodePattern])
-        if !(cardUI is AccountMoneyCardDrawer) {
+        if !(cardUI is CustomCardDrawerUI) {
             let mainColor = disabledMode ? disabledGray : cardUI.cardBackgroundColor
             animation.backgroundColor = mainColor
         }
@@ -50,17 +50,21 @@ class CardView: UIView {
     }
 
     func addGradient() {
-        if let currentCardUI = cardUI, currentCardUI is AccountMoneyCardDrawer {
-            // AM Card gradient
-            let gradient = CAGradientLayer()
-            gradient.frame = frame
-            let mainColor = disabledMode ? disabledGray.cgColor : currentCardUI.cardBackgroundColor.cgColor
-            gradient.colors = [mainColor, UIColor.white.cgColor]
-            gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
-            gradient.endPoint = CGPoint(x: 1.6, y: 0.5)
-            self.gradient.layer.addSublayer(gradient)
+        if let currentCardUI = cardUI, let customCardUI = currentCardUI as? CustomCardDrawerUI {
+            if let customGradient = customCardUI.ownGradient {
+                self.gradient.layer.addSublayer(customGradient)
+            } else {
+                // Default gradient for custom card.
+                let gradient = CAGradientLayer()
+                gradient.frame = frame
+                let mainColor = disabledMode ? disabledGray.cgColor : customCardUI.cardBackgroundColor.cgColor
+                gradient.colors = [mainColor, UIColor.white.cgColor]
+                gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+                gradient.endPoint = CGPoint(x: 1.6, y: 0.5)
+                self.gradient.layer.addSublayer(gradient)
+            }
         } else {
-            // Default card gradients
+            // Our default card gradients
             let layer = CAGradientLayer()
             let end = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1).cgColor
             layer.colors = [UIColor.black.cgColor, end]

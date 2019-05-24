@@ -38,7 +38,7 @@ class FrontView: CardView {
     }
 
     func setupAnimated(_ cardUI: CardUI) {
-        if !(cardUI is AccountMoneyCardDrawer) {
+        if !(cardUI is CustomCardDrawerUI) {
             Animator.overlay(on: self,
                              cardUI: cardUI,
                              views: [bank, expirationDate, logo, name, number, securityCode],
